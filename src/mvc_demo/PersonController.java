@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class PersonController
  */
-@WebServlet("/PersonController")
+@WebServlet("/Person")
 public class PersonController extends BaseController {
 	private static final long serialVersionUID = 1L;
 
