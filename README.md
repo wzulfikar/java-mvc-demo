@@ -70,11 +70,12 @@ This is what we need to do above scene:
 
 - **a controller for student**
   - create new servlet named `StudentController`, make `BaseController` its superclass and tell it to handle request from `Student` instead of `StudentController`. your class declaration should look like this:
-  ```java
-  @WebServlet("/Student")
-  public class StudentController extends BaseController {
-  // ...
-  ```
+  	
+  	```java
+  	@WebServlet("/Student")
+  	public class StudentController extends BaseController {
+  	// ...
+  	```
   - modify `doGet` method in `StudentController` to become like this:
 	```java
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
