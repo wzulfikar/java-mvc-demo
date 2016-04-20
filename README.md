@@ -25,6 +25,8 @@ Uses common convention,
   - Class for person controller should be named `PersonController`
 - Model is just plain java class
 
+----
+
 ### Want to code?
 
 If you're interested to code using the approach implemented in this repo, here is the scenario you can try.
