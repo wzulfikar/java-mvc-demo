@@ -37,36 +37,36 @@ This is what we need to do above scene:
 
   create new file `Student.java` inside `mvc_demo`. the content is:
 
-```java
-package mvc_demo;
+	```java
+	package mvc_demo;
 
-public class Student {
-	private String name;
-	private String id;
+	public class Student {
+		private String name;
+		private String id;
 
-	public String getName() {
-        if(this.name.equals(""))
-          return "(Name not provided)";
-          
-		return name;
+		public String getName() {
+	        if(this.name.equals(""))
+	          return "(Name not provided)";
+	          
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getId() {
+	        if(this.id.equals(""))
+	          return "(ID not provided)";
+	          
+			return id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
 	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getId() {
-        if(this.id.equals(""))
-          return "(ID not provided)";
-          
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-}
-```
+	```
 
 - **a controller for student**
   - create new servlet named `StudentController`, make `BaseController` its superclass and tell it to handle request from `Student` instead of `StudentController`. your class declaration should look like this:
@@ -76,23 +76,23 @@ public class Student {
   // ...
   ```
   - modify `doGet` method in `StudentController` to become like this:
-```java
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      // execute doGet method in parent class
-      super.doGet(request, response);
+	```java
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      		// execute doGet method in parent class
+      		super.doGet(request, response);
 	
-      // create new student
-      Student student  = new Student();
-      student.setId(request.getParameter("id"));
-      student.setName(request.getParameter("name"));
+	      	// create new student
+      		Student student  = new Student();
+      		student.setId(request.getParameter("id"));
+      		student.setName(request.getParameter("name"));
 	
-      // set data for the view
-      view.set("student", student);
+      		// set data for the view
+      		view.set("student", student);
 	
-      // render the view
-      view.render("/student.jsp");
-}
-```
+	      	// render the view
+      		view.render("/student.jsp");
+	}
+	```
 
 - **a jsp for the view**
   
