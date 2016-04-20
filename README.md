@@ -21,3 +21,92 @@ Uses common convention,
 - Instance of class uses `camel-case` letter
 - Name of method uses `camel-case` letter
   - method *eat cake* should be `eatCake()`, not `EatCake()` or `eat_cake()`
+- Name of controller always suffixed with `Controller`. 
+  - Class for person controller should be named `PersonController`
+- Model is just plain java class
+
+### Want to code?
+
+If you're interested to code using the approach implemented in this repo, here is the scenario you can try.
+
+>*Say, you want to access `/Student`, pass some parameter and then display info about student based on parameter.*
+
+This is what we need to do above scene:
+
+- **a model for our student object**
+
+  create new file `Student.java` inside `mvc_demo`. the content is:
+
+```java
+package mvc_demo;
+
+public class Student {
+	private String name;
+	private String id;
+
+	public String getName() {
+        if(this.name.equals(""))
+          return "(Name not provided)";
+          
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getId() {
+        if(this.id.equals(""))
+          return "(ID not provided)";
+          
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+}
+```
+
+- **a controller for student**
+  - create new servlet named `StudentController`, make `BaseController` its superclass and tell it to handle request from `Student` instead of `StudentController`. your class declaration should look like this:
+  ```java
+  @WebServlet("/Student")
+  public class StudentController extends BaseController {
+  // ...
+  ```
+  - modify `doGet` method in `StudentController` to become like this:
+```java
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      // execute doGet method in parent class
+      super.doGet(request, response);
+	
+      // create new student
+      Student student  = new Student();
+      student.setId(request.getParameter("id"));
+      student.setName(request.getParameter("name"));
+	
+      // set data for the view
+      view.set("student", student);
+	
+      // render the view
+      view.render("/student.jsp");
+}
+```
+
+- **a jsp for the view**
+  
+  in this case, we'll name it `student.jsp`. put this file in your WebContent directory.
+
+  ```html
+  <!-- body of student.jsp file -->
+  <body>
+  You're a student.<br/>
+  Your id is ${student.id},<br/>
+  And your name is ${ student.name }
+  </body>
+  ```
+
+- **start the server**
+
+	see the difference when you access `/Student` and `Student?name=herp&id=1234`
