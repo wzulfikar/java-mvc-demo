@@ -19,8 +19,6 @@ public class PersonController extends BaseController {
      * Default constructor. 
      */
     public PersonController() {
-        // TODO Auto-generated constructor stub
-    	super();
     }
 
 	/**
@@ -35,10 +33,10 @@ public class PersonController extends BaseController {
 		person.setEmail(request.getParameter("email"));
 		
 		// set data for the view
-		view.set("person", person);
+		viewHelper.set("person", person);
 		
 		// render the view
-		view.render("/person.jsp");
+		viewHelper.render("/person.jsp");
 	}
 
 	/**
