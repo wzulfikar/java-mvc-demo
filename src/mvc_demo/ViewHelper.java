@@ -2,11 +2,15 @@ package mvc_demo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
 
 public class ViewHelper{
 	
@@ -42,5 +46,19 @@ public class ViewHelper{
 	public void println(String msg) throws IOException{
 		PrintWriter out = this.response.getWriter();
 		out.println(msg);
+		out.flush();
+	}
+	
+	public void print(String msg) throws IOException{
+		PrintWriter out = this.response.getWriter();
+		out.print(msg);
+		out.flush();
+	}
+	
+	public void json(List<HashMap<String, String>> list) throws IOException{
+		this.response.setContentType("application/json");
+		
+		Gson gson = new Gson();
+		print(gson.toJson(list));
 	}
 }
