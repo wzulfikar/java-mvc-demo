@@ -1,6 +1,7 @@
 package mvc_demo;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -37,4 +38,9 @@ public class ViewHelper{
 	public void render(String viewName) throws ServletException, IOException{
     	servletContext.getRequestDispatcher(viewName).forward(request, response);
     }
+	
+	public void println(String msg) throws IOException{
+		PrintWriter out = this.response.getWriter();
+		out.println(msg);
+	}
 }
