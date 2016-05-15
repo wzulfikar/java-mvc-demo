@@ -1,4 +1,4 @@
-package mvc_demo;
+package mvc_demo.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,6 +13,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import mvc_demo.interfaces.DAOInterface;
 
 public class DAO implements DAOInterface{
 	
@@ -36,7 +38,7 @@ public class DAO implements DAOInterface{
 	String driver = "com.mysql.jdbc.Driver";
 	
 	public DAO() {
-		log("initiating BaseDAO");
+		log("initiating DAO");
 		openConnection();
 	}
 	
@@ -243,6 +245,11 @@ public class DAO implements DAOInterface{
 	
 	public List<HashMap<String, String>> select(String columns){
 		String query = "SELECT " + columns + " from " + this.tblName;
+		return this.execQuery(query);
+	}
+	
+	public List<HashMap<String, String>> all(){
+		String query = "SELECT * from " + this.tblName;
 		return this.execQuery(query);
 	}
 	

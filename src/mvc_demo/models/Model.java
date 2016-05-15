@@ -1,9 +1,12 @@
-package mvc_demo;
+package mvc_demo.models;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class Model{
+import mvc_demo.DAO.DAO;
+import mvc_demo.interfaces.ModelInterface;
+
+public class Model implements ModelInterface{
 	
 	public HashMap<String, String> model;
 	public DAO dao;
@@ -64,5 +67,9 @@ public class Model{
 	
 	public List<HashMap<String, String>> select(String columns){
 		return this.dao.select(columns);
+	}
+	
+	public List<HashMap<String, String>> all(){
+		return this.dao.all();
 	}
 }

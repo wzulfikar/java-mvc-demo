@@ -1,4 +1,4 @@
-package mvc_demo;
+package mvc_demo.interfaces;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +9,7 @@ public interface ModelInterface {
 	public void set(String name, String val);
 	public String get(String name);
 	public HashMap<String, String> get();
+	public List<HashMap<String, String>> all();
 	public void save();
 	public void delete();
 	public boolean fetch(int id);

@@ -1,4 +1,4 @@
-package mvc_demo;
+package mvc_demo.controllers;
 
 import java.io.IOException;
 
@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import mvc_demo.models.Person;
 
 /**
  * Servlet implementation class PersonController
@@ -29,8 +31,8 @@ public class PersonController extends BaseController {
 		
 		// create new person
 		Person person  = new Person();
-		person.setName(request.getParameter("name"));
-		person.setEmail(request.getParameter("email"));
+		person.set("name", request.getParameter("name"));
+		person.set("email", request.getParameter("email"));
 		
 		// set data for the view
 		viewHelper.set("person", person);

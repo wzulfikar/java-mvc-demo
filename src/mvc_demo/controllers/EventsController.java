@@ -1,4 +1,4 @@
-package mvc_demo;
+package mvc_demo.controllers;
 
 import java.io.IOException;
 
@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import mvc_demo.models.Event;
 
 /**
  * Servlet implementation class EventsController
@@ -27,17 +29,8 @@ public class EventsController extends BaseController {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		super.doGet(request, response);
 		
-        Event event = new Event();
-        event.set("title", "yololo");
-        event.save();
-        
-        System.out.println(event.fetch(1));
-        
-        event.set("start", "2016-05-21");
-        
-        System.out.println(event.get());
-        
-		viewHelper.println("this is me");
+		Event event = new Event();
+        viewHelper.json(event.all());
 	}
 
 	/**
@@ -46,7 +39,8 @@ public class EventsController extends BaseController {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		super.doPost(request, response);
 		
-		viewHelper.println("just a test tho");
+		Event event = new Event();
+        viewHelper.json(event.all());
 	}
 
 }

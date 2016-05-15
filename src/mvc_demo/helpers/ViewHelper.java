@@ -1,4 +1,4 @@
-package mvc_demo;
+package mvc_demo.helpers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,7 +18,7 @@ public class ViewHelper{
 	private HttpServletResponse response;
 	private ServletContext servletContext;
 	
-	protected ViewHelper(){
+	public ViewHelper(){
 		
 	}
 	
