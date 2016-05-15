@@ -15,23 +15,24 @@ import javax.servlet.http.HttpServletResponse;
 public class BaseController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	protected ViewHelper view;
+	protected ViewHelper viewHelper;
+	protected HttpServletResponse response;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
     public BaseController() {
         super();
-        view = new ViewHelper();
+        viewHelper = new ViewHelper();
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// compose request & response for view
-		view.compose(getServletContext(), request, response);
+		viewHelper.compose(getServletContext(), request, response);
     }
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// compose request & response for view
-		view.compose(getServletContext(), request, response);
+		viewHelper.compose(getServletContext(), request, response);
     }
 }
