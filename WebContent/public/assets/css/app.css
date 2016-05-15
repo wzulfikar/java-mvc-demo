@@ -1,0 +1,27 @@
+.main-header .logo{
+	background-color:#46428E !important;
+}
+.skin-purple-light .sidebar-menu>li.active,
+.skin-purple-light .sidebar-menu>li:hover  {
+  border-left: 3px solid;
+  border-left-color: #6E67DE;
+}
+.skin-purple-light .sidebar-menu>li:hover>a, 
+.skin-purple-light .sidebar-menu>li.active>a{
+  color: #524EA9;
+  background: #E3E7EC;
+}
+.box-shadow {
+	box-shadow: 1px 2px 5px gray;
+}
+button, .btn:focus, .btn:focus:active, .paginate_button a:focus, .paginate_button a:focus:active{
+  outline-color:white !important;
+}
+/* calendar today */
+.fc-unthemed .fc-today {
+  background: #D3D2FF !important;
+}
+
+.growl {
+  opacity: 0.9;
+}
