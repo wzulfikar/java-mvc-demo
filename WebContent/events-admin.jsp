@@ -111,7 +111,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
             <li class=active>
-          <a href=/home >
+          <a href=# >
           <i class="fa fa-dashboard"></i> 
           <span>Dashboard</span> 
           </a>
@@ -128,7 +128,7 @@
   <section class="content-header" style="padding-bottom:1.5%">
           <h1>Dashboard</h1>
           <ol class="breadcrumb">
-            <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
           </ol>
   </section>
 </div>

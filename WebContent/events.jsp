@@ -142,9 +142,9 @@
   <section class="content">
       <div class="row">
   <section class="content-header" style="padding-bottom:1.5%">
-          <h1>Dashboard</h1>
+          <h1>Events</h1>
           <ol class="breadcrumb">
-            <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="home"><i class="fa fa-calendar"></i></a></li>
           </ol>
   </section>
 </div>
